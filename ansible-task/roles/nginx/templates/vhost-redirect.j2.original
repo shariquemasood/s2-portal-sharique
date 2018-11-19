@@ -1,0 +1,18 @@
+upstream tomcat {
+#   {% for name in hostname %}
+#       server {{ name }}
+# {% endfor %}
+    server {{ vhost }}
+    server backend1.example.com
+    server backend2.example.com:8080:
+}
+server {
+        listen 80;
+
+        server_name {{ hostname }}  www.{{ hostname }};
+
+        location / {
+		proxy_pass http://tomcat;
+                try_files $uri $uri/ =404;
+        }
+}

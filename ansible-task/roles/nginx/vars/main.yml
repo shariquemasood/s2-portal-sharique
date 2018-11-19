@@ -1,0 +1,11 @@
+---
+   user: www-data
+   worker_processes: "{{ ansible_processor_vcpus }}"
+   pid: /var/run/nginx.pid
+   worker_connections: 768
+   urlkey: http://nginx.org/keys/nginx_signing.key
+   distro: "{{ ansible_distribution_release }}"
+   #nginxversion: 1.10.3~xenial
+   nginxversion: 1.10.3-0ubuntu0.16.04.3
+   hostname: test5.com 
+   vhost: http://localhost:8081

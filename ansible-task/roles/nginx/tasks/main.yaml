@@ -1,0 +1,3 @@
+--- # Including Nginx Tasks 
+  - include: nginx_install.yaml
+  - include: vhost.yml

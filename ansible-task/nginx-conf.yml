@@ -1,0 +1,9 @@
+---
+- name: Installing nginx and Generating nginx vhost Configuration Files 
+  hosts: ubuntu
+  remote_user: ubuntu
+  become: yes
+  become_method: sudo
+  gather_facts: yes
+  roles: 
+   - nginx

@@ -1,0 +1,18 @@
+---
+- hosts: local
+  user: sharique
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  vars:
+    playbook_version: 0.01b
+  vars_prompt:
+    - name: pkgtoinstall
+      prompt: Install which Package
+      default: telnet
+      private: no
+  tasks:
+    - name: Install the Indicated Package
+      yum: name={{ pkgtoinstall}} state=latest
+
+
